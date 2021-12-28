@@ -1,0 +1,14 @@
+%dw 2.0
+
+type auto_bf560371_cef0_4f7c_8e45_6dc4439ebbff_Input_Payload = {
+  store_id: Number, 
+  quantity: Number, 
+  orderId: Number, 
+  store_name: String, 
+  store_address: String, 
+  store_contact_number: String, 
+  product_type_id: String, 
+  store_distance: Number, 
+  _?: Any
+}
+
