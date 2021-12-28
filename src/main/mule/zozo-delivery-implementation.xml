@@ -7,10 +7,12 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<flow name="InsertDeliveryDetailsInDatabase" doc:id="bf560371-cef0-4f7c-8e45-6dc4439ebbff" >
 		<db:insert doc:name="Insert" doc:id="eb53ec9f-e605-410b-818e-dcaa27b98df4" config-ref="Database_Config">
-			<db:sql ><![CDATA[Insert into Delivery_Store_Details values(:orderId, :store_id,
+			<db:sql ><![CDATA[Insert into Delivery_Store_Details (store_id,
+store_name, store_address, store_distance, store_contact_number,
+product_type_id, quantity) values(:store_id,
 :store_name, :store_address, :store_distance, :store_contact_number,
 :product_type_id, :quantity)]]></db:sql>
-			<db:input-parameters ><![CDATA[#[{"orderId": payload.orderId,"store_id":payload.store_id,
+			<db:input-parameters ><![CDATA[#[{"store_id":payload.store_id,
 	"store_name":payload.store_name,"store_address":payload.store_address,
 	"store_distance":payload.store_distance,"store_contact_number":payload.store_contact_number,
 	"product_type_id":payload.product_type_id,"quantity":payload.quantity

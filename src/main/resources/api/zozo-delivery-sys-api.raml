@@ -1,0 +1,23 @@
+#%RAML 1.0
+title: zozo-delivery-sys-api
+
+types:
+  orderDetails: !include Type/orderDetails.raml
+
+/deliveryDetails:
+  post:
+    displayName: Delivery Order details
+    description: Order delivery details with store details added in database
+    body:
+      application/json:
+        type: orderDetails
+        example: !include /Examples/orderDetails.json
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {
+                "message":"Nearest Store located succesfully "
+              }
+          
