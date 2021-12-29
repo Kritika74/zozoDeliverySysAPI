@@ -31,6 +31,21 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${muleVersion}</muleVersion>
+						<username>${username}</username>
+						<password>${password}</password>
+						<applicationName>${applicationName}</applicationName>
+						<environment>${environment}</environment>
+						<businessGroup>${businessGroup}</businessGroup>
+						<workerType>${workerType}</workerType>
+						<objectStoreV2>true</objectStoreV2>
+						<properties>
+							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+						</properties>
+					</cloudHubDeployment>
 					<sharedLibraries>
 						<sharedLibrary>
 							<groupId>mysql</groupId>
@@ -97,13 +112,6 @@
 			<version>5.1.48</version>
 		</dependency>
 		<dependency>
-			<groupId>de12f9a8-4da3-4eb2-88b7-c2edfd812f4d</groupId>
-			<artifactId>zozo-delivery-sys-api</artifactId>
-			<version>1.0.2</version>
-			<classifier>raml</classifier>
-			<type>zip</type>
-		</dependency>
-		<dependency>
 			<groupId>com.mulesoft.munit</groupId>
 			<artifactId>munit-runner</artifactId>
 			<version>2.3.6</version>
@@ -128,6 +136,13 @@
 			<artifactId>mule-secure-configuration-property-module</artifactId>
 			<version>1.2.3</version>
 			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>de12f9a8-4da3-4eb2-88b7-c2edfd812f4d</groupId>
+			<artifactId>zozo-delivery-sys-api</artifactId>
+			<version>1.0.3</version>
+			<classifier>raml</classifier>
+			<type>zip</type>
 		</dependency>
 	</dependencies>
 

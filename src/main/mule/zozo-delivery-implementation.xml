@@ -6,6 +6,7 @@
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<flow name="InsertDeliveryDetailsInDatabase" doc:id="bf560371-cef0-4f7c-8e45-6dc4439ebbff" >
+		<logger level="INFO" doc:name="START INFO LOG" doc:id="8a70fb3d-1a29-45ec-a6b6-74ae5d9f698c" message='#["insert started"]'/>
 		<db:insert doc:name="Inserting store delivery details" doc:id="eb53ec9f-e605-410b-818e-dcaa27b98df4" config-ref="Database_Config">
 			<db:sql ><![CDATA[Insert into Delivery_Store_Details (store_id,
 store_name, store_address, store_distance, store_contact_number,
@@ -18,5 +19,6 @@ product_type_id, quantity) values(:store_id,
 	"product_type_id":payload.product_type_id,"quantity":payload.quantity
 }]]]></db:input-parameters>
 		</db:insert>
+		<logger level="INFO" doc:name="END INFO LOG" doc:id="eaceecd3-4294-45db-b4d9-ec251c51f9f8" message='#["insert done"]'/>
 	</flow>
 </mule>
