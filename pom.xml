@@ -31,7 +31,7 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<cloudHubDeployment>
+				<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>${muleVersion}</muleVersion>
 						<username>${username}</username>
@@ -50,6 +50,10 @@
 						<sharedLibrary>
 							<groupId>mysql</groupId>
 							<artifactId>mysql-connector-java</artifactId>
+						</sharedLibrary>
+						<sharedLibrary>
+							<groupId>com.mycompany</groupId>
+							<artifactId>mysql-connector-java-8.0.16</artifactId>
 						</sharedLibrary>
 					</sharedLibraries>
 					<classifier>mule-application</classifier>
@@ -136,6 +140,11 @@
 			<artifactId>mule-secure-configuration-property-module</artifactId>
 			<version>1.2.3</version>
 			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.mycompany</groupId>
+			<artifactId>mysql-connector-java-8.0.16</artifactId>
+			<version>0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>de12f9a8-4da3-4eb2-88b7-c2edfd812f4d</groupId>

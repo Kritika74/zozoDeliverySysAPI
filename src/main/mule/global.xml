@@ -14,5 +14,5 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 		<secure-properties:encrypt useRandomIVs="true" />
 	</secure-properties:config>
 	<global-property doc:name="Global Property" doc:id="cf55b9ed-094e-47cf-a3b1-13b416163e2e" name="encryptKey" value="apiseroMule12345" />
-	<api-gateway:autodiscovery apiId="17538328" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="546336c0-cdc7-4793-9275-cf2d00bac9ae" flowRef="zozo-delivery-sys-api-main" />
+	<api-gateway:autodiscovery apiId="17538328" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="6cef6cfc-24d5-4482-8cdb-f6c15cc4dce5" flowRef="zozo-delivery-sys-api-main" />
 </mule>

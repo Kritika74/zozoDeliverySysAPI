@@ -3,11 +3,8 @@ title: zozo-delivery-sys-api
 
 types:
   orderDetails: !include Type/orderDetails.raml
-traits:
-    client_id_required : !include Traits/client_id_required.raml
 
 /deliveryDetails:
-  is: [client_id_required]
   post:
     displayName: Delivery Order details
     description: Order delivery details with store details added in database

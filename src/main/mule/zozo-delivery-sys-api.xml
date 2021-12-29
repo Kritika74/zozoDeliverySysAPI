@@ -14,7 +14,7 @@
                 <http:headers>#[vars.outboundHeaders default {}]</http:headers>
             </http:error-response>
         </http:listener>
-        <apikit:router config-ref="zozo-delivery-sys-api-config" doc:id="74af07b7-df6c-4bbb-91fd-c8f0ba4ad8bc" />
+        <apikit:router config-ref="zozo-delivery-sys-api-config" doc:id="73f97313-81df-4f1a-8284-6920fa4687bb" />
     </flow>
     <flow name="zozo-delivery-sys-api-console">
         <http:listener config-ref="zozo-delivery-sys-api-httpListenerConfig" path="/console/*">
@@ -26,11 +26,11 @@
                 <http:headers>#[vars.outboundHeaders default {}]</http:headers>
             </http:error-response>
         </http:listener>
-        <apikit:console config-ref="zozo-delivery-sys-api-config" doc:id="dac60727-a621-4e15-ade1-f84029790923" />
+        <apikit:console config-ref="zozo-delivery-sys-api-config" doc:id="cc86993e-5b20-42d2-9df4-fb7cffb906d8" />
     </flow>
     <flow name="post:\deliveryDetails:application\json:zozo-delivery-sys-api-config">
-        <flow-ref doc:name="Insert Delivery Details In Database" doc:id="0f60a4b7-368c-4659-b8a0-4a9b3d7adaee" name="InsertDeliveryDetailsInDatabase" />
-        <ee:transform doc:name="Ouput payload" doc:id="fd06def4-4f60-4b03-bc40-caf178fe6fd6">
+        <flow-ref doc:name="Insert Delivery Details In Database" doc:id="addd0e02-4b81-43f7-a0ff-1af4629575b6" name="InsertDeliveryDetailsInDatabase" />
+        <ee:transform doc:name="Ouput payload" doc:id="757e02c3-929e-4fac-88fe-ca22e1d8cc58">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
 output application/json
