@@ -97,6 +97,18 @@ output application/json
 				</ee:variables>
 			</ee:transform>
 		</on-error-propagate>
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="6d721a45-f99f-471b-9555-5b0a891d5028" type="ANY">
+			<ee:transform doc:name="Transform Message" doc:id="1ad9ea58-6133-465a-9adf-f82b07760de1" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"message":error.description
+}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+		</on-error-propagate>
         
 </error-handler>
 </mule>

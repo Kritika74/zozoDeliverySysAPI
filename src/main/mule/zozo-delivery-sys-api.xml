@@ -14,7 +14,7 @@
                 <http:headers>#[vars.outboundHeaders default {}]</http:headers>
             </http:error-response>
         </http:listener>
-        <apikit:router config-ref="zozo-delivery-sys-api-config" />
+        <apikit:router config-ref="zozo-delivery-sys-api-config" doc:id="73f97313-81df-4f1a-8284-6920fa4687bb"/>
     </flow>
     <flow name="zozo-delivery-sys-api-console">
         <http:listener config-ref="zozo-delivery-sys-api-httpListenerConfig" path="/console/*">
@@ -26,34 +26,17 @@
                 <http:headers>#[vars.outboundHeaders default {}]</http:headers>
             </http:error-response>
         </http:listener>
-        <apikit:console config-ref="zozo-delivery-sys-api-config" />
-        <error-handler>
-            <on-error-propagate type="APIKIT:NOT_FOUND">
-                <ee:transform xsi:schemaLocation="
-http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-                    <ee:message>
-                        <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{message: "Resource not found"}]]></ee:set-payload>
-                    </ee:message>
-                    <ee:variables>
-                        <ee:set-variable variableName="httpStatus">404</ee:set-variable>
-                    </ee:variables>
-                </ee:transform>
-            </on-error-propagate>
-        </error-handler>
+        <apikit:console config-ref="zozo-delivery-sys-api-config" doc:id="cc86993e-5b20-42d2-9df4-fb7cffb906d8"/>
     </flow>
     <flow name="post:\deliveryDetails:application\json:zozo-delivery-sys-api-config">
-        <flow-ref doc:name="Flow Reference" doc:id="addd0e02-4b81-43f7-a0ff-1af4629575b6" name="InsertDeliveryDetailsInDatabase" />
-        <ee:transform doc:name="Transform Message" doc:id="757e02c3-929e-4fac-88fe-ca22e1d8cc58">
+        <flow-ref doc:name="Insert Delivery Details In Database" doc:id="addd0e02-4b81-43f7-a0ff-1af4629575b6" name="InsertDeliveryDetailsInDatabase" />
+        <ee:transform doc:name="Ouput payload" doc:id="757e02c3-929e-4fac-88fe-ca22e1d8cc58">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
 output application/json
 ---
 {
-  message: "Nearest Store located succesfully "
+  message: "Nearest Store located successfully "
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>
